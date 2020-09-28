@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class EmailPattern {
 	//Checking first Mandatory part before @
-	private static final Pattern EMAIL_PATTERN=Pattern.compile("^[0-9a-zA-Z_+-]+(\\.?[0-9a-zA-Z_+-]*)@[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)$");
+	private static final Pattern EMAIL_PATTERN=Pattern.compile("^[0-9a-zA-Z_+-]+(\\.?[0-9a-zA-Z_+-]*)[^\\.]@[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)$");
 	
 	public boolean emailValidate(String email ) {
 		return EMAIL_PATTERN.matcher(email).matches();
