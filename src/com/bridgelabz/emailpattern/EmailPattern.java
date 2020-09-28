@@ -14,7 +14,7 @@ public class EmailPattern {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		EmailPattern emailCheck=new EmailPattern();
-		System.out.println("Enter the email id: ");
+		System.out.println("Enter the email id with optional element: ");
 		String email=sc.next();
 		System.out.println("Email Validation: "+emailCheck.emailValidate(email));
 	}
