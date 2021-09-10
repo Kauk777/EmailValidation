@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class EmailPattern {
 	//Checking first Mandatory part before @
-	private static final Pattern EMAIL_PATTERN=Pattern.compile("^[0-9a-zA-Z_+-]+(\\.?[0-9a-zA-Z_+-]*)[^\\.]@[0-9a-zA-Z]+(\\.[0-9a-zA-Z]{2,})(\\.?[a-zA-Z]{2,})?$");
+	private static final Pattern EMAIL_PATTERN=Pattern.compile("^[\\u0E00-\\u0E7F0-9a-zA-Z_+]+(\\.?[\\u0E00-\\u0E7F0-9a-zA-Z_+-]*)[^\\.]@[\\u0E00-\\u0E7F0-9a-zA-Z-]+(\\.[\\u0E00-\\u0E7F0-9a-zA-Z]{2,})(\\.?[\\u0E00-\\u0E7Fa-zA-Z]{2,})?$");
 	
 	public boolean emailValidate(String email ) {
 		return EMAIL_PATTERN.matcher(email).matches();
@@ -39,6 +39,14 @@ public class EmailPattern {
 		System.out.println("Email Validation abc@abc@gmail.com: "+emailCheck.emailValidate("abc@abc@gmail.com"));
 		System.out.println("Email Validation abc@gmail.com.1a: "+emailCheck.emailValidate("abc@gmail.com.1a"));
 		System.out.println("Email Validation abc@gmail.com.aa.au: "+emailCheck.emailValidate("abc@gmail.com.aa.au"));
+
+		System.out.println("================= For Thai Domain Name =================");
+		System.out.println("email-test@universal-acceptance-test.international: "+emailCheck.emailValidate("email-test@universal-acceptance-test.international"));
+		System.out.println("email-test@universal-acceptance-test.icu: "+emailCheck.emailValidate("email-test@universal-acceptance-test.icu"));
+		System.out.println("อีเมลทดสอบ@ยูเอทดสอบ.ไทย: "+emailCheck.emailValidate("อีเมลทดสอบ@ยูเอทดสอบ.ไทย"));
+		System.out.println("อีเมลทดสอบ@ทีเอชนิค.องค์กร.ไทย: "+emailCheck.emailValidate("อีเมลทดสอบ@ทีเอชนิค.องค์กร.ไทย"));
+		System.out.println("=======================================================");
+
 		System.out.println("Enter the email id to check: ");
 		String email=sc.next();
 		System.out.println("Email Validation: "+emailCheck.emailValidate(email));
